@@ -29,6 +29,12 @@ function indent() {
   esac
 }
 
+if [ -f $BUILD_DIR/Aptfile_configure.sh ]; then
+    topic "Apt configuration script found. Executing."
+    source $BUILD_DIR/Aptfile_configure.sh
+    topic "Apt configuration script completed"
+fi
+
 APT_CACHE_DIR="$CACHE_DIR/apt/cache"
 APT_STATE_DIR="$CACHE_DIR/apt/state"
 
